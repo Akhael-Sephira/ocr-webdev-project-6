@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const sanitize = require('express-mongo-sanitize');
 const path = require('path');
 const config = require('./config')
 
@@ -17,6 +18,8 @@ mongoose.connect(config.db.uri)
 app.use(cors());
 
 app.use(express.json());
+
+app.use(sanitize({ allowDots: true }));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
