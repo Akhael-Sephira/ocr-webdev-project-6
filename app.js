@@ -19,7 +19,9 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use(sanitize({ allowDots: true }));
+app.use(sanitize({
+    replaceWith: '_'
+}));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

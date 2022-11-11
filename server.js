@@ -9,7 +9,6 @@ server.on('listening', () => {
     const address = server.address();
     const bind = typeof address === 'string' ? 'bind ' + address : 'port ' + address.port;
     console.log('Listening on:', bind);
-    console.warn('No headers options')
 });
 
 server.listen(port);

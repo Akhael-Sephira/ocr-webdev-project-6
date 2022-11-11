@@ -14,22 +14,28 @@ const Sauce = mongoose.Schema({
     usersDisliked: { type: [String] },
 });
 
+/** Returns true if the user is the sauce's owner */
 Sauce.methods.isOwner = function(userId) {
     return this.userId == userId;
 }
 
+/** Dislikes the sauce */
 Sauce.methods.dislike = function(userId) {
+    if (!userId || typeof userId !== 'string') return;
     if (this.usersLiked.find(uId => uId === userId)) return;
     if (this.usersDisliked.find(uId => uId === userId)) return;
     this.dislikes++;
     this.usersDisliked.push(userId);
 }
+/** Likes the sauce */
 Sauce.methods.like = function(userId) {
+    if (!userId || typeof userId !== 'string') return;
     if (this.usersLiked.find(uId => uId === userId)) return;
     if (this.usersDisliked.find(uId => uId === userId)) return;
     this.likes++;
     this.usersLiked.push(userId);
 }
+/** Removes any like or dislike from the user */
 Sauce.methods.removeLikeAndDislike = function(userId) {
     const ulIndex = this.usersLiked.findIndex(uId => uId === userId)
     const udIndex = this.usersDisliked.findIndex(uId => uId === userId)

@@ -63,5 +63,6 @@ exports.like = (req, res, next) => {
         sauce.save()
         .then(() => res.status(200).json({ message: 'Sauce updated !' }))
         .catch(error => res.status(400).json({ error }));
-    });
+    })
+    .catch(error => res.status(400).json({error}));
 }
