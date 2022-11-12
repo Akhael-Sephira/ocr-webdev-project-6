@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const sanitize = require('express-mongo-sanitize');
 const path = require('path');
-const config = require('./config')
 
 const authRoute = require('./routes/auth');
 const saucesRoute = require('./routes/sauces');
@@ -11,7 +10,7 @@ const authorize = require('./middleware/auth');
 
 const app = express();
 
-mongoose.connect(config.db.uri)
+mongoose.connect(process.env.DB_URI)
 .then(() => { console.log('Connection to MongoDB: Successful') })
 .catch(() => { console.log('Connection to MongoDB: Failed') });
 

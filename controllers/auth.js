@@ -1,4 +1,3 @@
-const config = require('../config');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
@@ -18,7 +17,7 @@ exports.login = (req, res, next) => {
             userId: user._id,
             token: jwt.sign(
                 { userId: user._id },
-                config.app.secret,
+                process.env.SECRET_KEY,
                 { expiresIn: 60 * 60 }
             )
         })
