@@ -1,6 +1,11 @@
 
+6th project from OpenClassrooms's web dev course.
 
+## Installation
 
+Use "npm install" to install.
+
+Use "node server" to launch.
 
 ## Auth Routes
 
@@ -76,6 +81,7 @@
 ###    Update a sauce
 
     Update an existing sauce using the given id.
+    Ownership is necessary.
 
     Method: PUT
     URI: /api/sauces/:id
@@ -90,6 +96,7 @@
 ###    Delete a sauce
 
     Delete an existing sauce using the given id.
+    Ownership is necessary.
 
     Method: DELETE
     URI: /api/sauces/:id

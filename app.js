@@ -9,7 +9,6 @@ const fs = require('fs');
 const authRoute = require('./routes/auth');
 const saucesRoute = require('./routes/sauces');
 const authorize = require('./middleware/auth');
-const { env } = require('process');
 
 const app = express();
 
