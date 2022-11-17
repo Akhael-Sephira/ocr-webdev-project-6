@@ -28,6 +28,9 @@ app.use(sanitize({
 }));
 
 
+if (!fs.existsSync(path.join(__dirname, 'images'))) {
+    fs.mkdirSync(path.join(__dirname, 'images'));
+}
 if (!fs.existsSync(path.join(__dirname, 'logs'))) {
     fs.mkdirSync(path.join(__dirname, 'logs'));
 }
