@@ -5,6 +5,8 @@
 
 Use "npm install" to install.
 
+Rename the .env.sample file into .env & fill it with the necessary informations.
+
 Use "node server" to launch.
 
 ## Auth Routes
